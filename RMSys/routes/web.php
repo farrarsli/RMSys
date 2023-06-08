@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\SlideController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +15,61 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    if ($user = Auth::user()) {
+        //if login
+        return redirect('/dashboard');
+    } else {
+        //if not login
+        return redirect('login'); }
 });
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [SlideController::class, 'managerdashboard']);
+return view('dashboard.managerdashboard');
+
+
+
+
+//------------------------------------------MANAGE REGISTRATION------------------------------------------
+
+Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+//Profile Registration
+Route::get('/register', [App\Http\Controllers\UserController::class, 'register'])->name('register');
+Route::get('/listuser', [App\Http\Controllers\UserController::class, 'listuser'])->name('listuser');
+//Add user into database
+Route::post('/addUser', [App\Http\Controllers\UserController::class, 'addUser'])->name('addUser');
+
+//view Update Profile page
+Route::get('/updateprofile/{id}', [App\Http\Controllers\UserController::class, 'updateprofile'])->name('updateprofile');
+//update query
+Route::post('/updateUser/{id}', [App\Http\Controllers\UserController::class, 'updateUser'])->name('updateUser');
+//delete profile
+Route::post('/deleteItem/{id}', [App\Http\Controllers\UserController::class, 'deleteItem'])->name('deleteItem');
+//delete user from database
+Route::delete('/delprofile/{id}',[App\Http\Controllers\UserController::class, 'delprofile'])->name('delprofile');
+
+
+//------------------------------------------MANAGE PRODUCT------------------------------------------
+
+//go to list product page (Clerk)
+Route::get('/listproduct', [App\Http\Controllers\ProductController::class, 'listproduct'])->name('listproduct');
+//add product
+Route::get('/addproduct', [App\Http\Controllers\ProductController::class, 'addproduct'])->name('addproduct');
+//Add product into database
+Route::post('/insertProduct', [App\Http\Controllers\ProductController::class, 'insertProduct'])->name('insertProduct');
+//go to update product page
+Route::get('/updateProduct/{id}', [App\Http\Controllers\ProductController::class, 'updateProduct'])->name('updateProduct');
+//Update product in database
+Route::post('/editProduct/{id}', [App\Http\Controllers\ProductController::class, 'editProduct'])->name('editProduct');
+//delete product from database
+Route::delete('/deleteProduct/{id}',[App\Http\Controllers\ProductController::class, 'deleteProduct'])->name('deleteProduct');
+
+
+//------------------------------------------MANAGE SALES------------------------------------------
+
+
+//go to list sales (Manager)
+Route::get('/listsales', [App\Http\Controllers\SalesController::class, 'listsales'])->name('listsales');

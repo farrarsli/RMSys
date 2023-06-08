@@ -1,14 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
-
+<body style="background-color: #bd1924;">
+<div class="container" style="width: 63vw; height: 100vh; overflow: hidden;">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{ asset('frontend') }}/images/login.png" alt="Image" style="width: 100%; height: auto; object-fit: cover; object-position: left;">
+        </div>
+        <div class="col-md-6"><br><br><br><br><br>
+            <div class="card" style="height: 300px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);">
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('login') }}"><br><br>
                         @csrf
 
                         <div class="row mb-3">
@@ -70,4 +72,6 @@
         </div>
     </div>
 </div>
+</body>
+
 @endsection
