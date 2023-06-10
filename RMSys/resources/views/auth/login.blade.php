@@ -10,6 +10,7 @@
         <div class="col-md-6"><br><br><br><br><br>
             <div class="card" style="height: 300px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);">
                 <div class="card-body">
+                    <form method="POST" action="{{ route('login') }}">
                 <form method="POST" action="{{ route('login') }}"><br><br>
                         @csrf
 
@@ -73,5 +74,8 @@
     </div>
 </div>
 </body>
-
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Auth\SlideController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,14 +24,6 @@ Route::get('/', function () {
         return redirect('login'); }
 });
 
-Auth::routes();
-
-Route::get('/dashboard', [SlideController::class, 'managerdashboard']);
-return view('dashboard.managerdashboard');
-
-
-
-
 //------------------------------------------MANAGE REGISTRATION------------------------------------------
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
@@ -52,7 +43,7 @@ Route::post('/deleteItem/{id}', [App\Http\Controllers\UserController::class, 'de
 Route::delete('/delprofile/{id}',[App\Http\Controllers\UserController::class, 'delprofile'])->name('delprofile');
 
 
-//------------------------------------------MANAGE PRODUCT------------------------------------------
+//------------------------------------------MANAGE PRODUCT------------------------------------------log
 
 //go to list product page (Clerk)
 Route::get('/listproduct', [App\Http\Controllers\ProductController::class, 'listproduct'])->name('listproduct');
@@ -73,3 +64,6 @@ Route::delete('/deleteProduct/{id}',[App\Http\Controllers\ProductController::cla
 
 //go to list sales (Manager)
 Route::get('/listsales', [App\Http\Controllers\SalesController::class, 'listsales'])->name('listsales');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
