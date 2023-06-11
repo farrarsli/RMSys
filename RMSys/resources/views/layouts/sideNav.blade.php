@@ -7,10 +7,10 @@
         <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0" >
             <div class="main-navbar">
                 <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
-                    <a class="navbar-brand w-100 mr-0" href="{{ route('dashboard') }}" style="line-height: 25px; background-color: #bd1924;">
+                    <a class="navbar-brand w-100 mr-0" href="{{ route('dashboard') }}" style="line-height: 25px; background-color: #ffd700;">
                         <div class="d-table m-auto">
-                            <img id="main-logo" class="d-inline-block align-center mr-1" style="max-width: 55px;" src="{{ asset('frontend') }}/images/logo.png" alt="petakom logo">
-                            <span class="d-none d-md-inline ml-1" style="color: white"> {{ config('app.name', 'Vizika') }}</span>
+                            <img id="main-logo" class="d-inline-block align-center mr-3" style="max-width: 40px;" src="{{ asset('frontend') }}/images/logo.png" alt="RMSys logo">
+                            <span class="d-none d-md-inline ml-1" style="color: white"> {{ config('app.name', 'RMsys') }}</span>
                         </div>
                     </a>
                     <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
@@ -32,20 +32,20 @@
                     @if( auth()->user()->category== "Clerk")
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('listuser*') ? 'active' : '' }}" href="{{ route('listuser') }}">
-                            <i class="material-icons" style="color: black;">work</i>
-                            <span style="color: black;">Manage Registration</span>
+                            <i class="material-icons" style="color: white;">work</i>
+                            <span style="color: white;">Manage Registration</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('listproduct*') ? 'active' : '' }}" href="{{ route('listproduct') }}">
-                            <i class="material-icons" style="color: black;">work</i>
-                            <span style="color: black;">Manage Product</span>
+                            <i class="material-icons" style="color: white;">work</i>
+                            <span style="color: white;">Manage Product</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('register*') ? 'active' : '' }}" href="{{ route('register') }}">
-                            <i class="material-icons" style="color: black;">work</i>
-                            <span style="color: black;">Branch Limit</span>
+                            <i class="material-icons" style="color: white;">work</i>
+                            <span style="color: white;">Branch Limit</span>
                         </a>
                     </li>
                     @endif

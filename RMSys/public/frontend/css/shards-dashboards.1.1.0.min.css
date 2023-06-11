@@ -5997,7 +5997,6 @@ a.text-accent:hover {
 .main-sidebar .nav .nav-item.active,
 .main-sidebar .nav .nav-item:hover {
     box-shadow: inset .1875rem 0 0 #007bff;
-    background-color: #fbfbfb;
     color: #007bff
 }
 
@@ -6005,7 +6004,7 @@ a.text-accent:hover {
 .main-sidebar .nav .nav-item .nav-link:hover i,
 .main-sidebar .nav .nav-item.active i,
 .main-sidebar .nav .nav-item:hover i {
-    color: #007bff
+    color: #fffdfd
 }
 
 .main-sidebar .nav--no-borders .nav-item .nav-link {

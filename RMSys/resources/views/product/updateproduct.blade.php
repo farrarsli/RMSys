@@ -1,7 +1,7 @@
 @extends('layouts.sideNav')
 @section('content')
 
-<center><h1>Update User Profile</h1></center><br>
+<center><h1>Update Product Details</h1></center><br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
