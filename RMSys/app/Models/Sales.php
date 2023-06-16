@@ -10,10 +10,11 @@ class Sales extends Model
     protected $table='sales'; 
 
     protected $fillable = [
-        'managername',
+        'user_id',
         'branchname',
         'salesdate',
         'totalsales',
-        //add evidence file
+        'sales_img',
+        'sales_status',
     ];
 }

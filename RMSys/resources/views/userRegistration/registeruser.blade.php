@@ -66,7 +66,7 @@
                 </div>
             </div>
         </div>
-    </div> php artisan make:migration create_product_table --table=product
+    </div>
 </div>
 @endsection
 <script>

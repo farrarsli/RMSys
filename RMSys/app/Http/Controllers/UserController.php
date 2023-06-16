@@ -9,9 +9,9 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function register()
+    public function registeruser()
     {
-            return view('userRegistration.register');
+            return view('userRegistration.registeruser');
     }
     public function listuser()
     {
@@ -69,7 +69,6 @@ class UserController extends Controller
     //view update profile 
     public function updateprofile( $id)
     {
-        $id = Auth::user()->id;
         $register = DB::table('users')->select(
             'id',
             'name',
@@ -86,6 +85,7 @@ class UserController extends Controller
     {
         $users = User::find($id);
 
+        
         $users->name = $request->input('name');
         $users->email = $request->input('email');
         $users->category = $request->input('category');

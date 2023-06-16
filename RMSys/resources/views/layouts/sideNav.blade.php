@@ -6,7 +6,7 @@
         <!-- Main Sidebar -->
         <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0" >
             <div class="main-navbar">
-                <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
+                <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0" >
                     <a class="navbar-brand w-100 mr-0" href="{{ route('dashboard') }}" style="line-height: 25px; background-color: #ffd700;">
                         <div class="d-table m-auto">
                             <img id="main-logo" class="d-inline-block align-center mr-3" style="max-width: 40px;" src="{{ asset('frontend') }}/images/logo.png" alt="RMSys logo">
@@ -43,7 +43,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('register*') ? 'active' : '' }}" href="{{ route('register') }}">
+                        <a class="nav-link {{ request()->routeIs('branchlimit*') ? 'active' : '' }}" href="{{ route('branchlimit') }}">
                             <i class="material-icons" style="color: white;">work</i>
                             <span style="color: white;">Branch Limit</span>
                         </a>
@@ -66,7 +66,27 @@
                     </li>
                     @endif
 
-                    
+                    <!-- OWNER SIDENAV-->
+                    @if( auth()->user()->category== "Owner")
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('salesapproval*') ? 'active' : '' }}" href="{{ route('salesapproval') }}">
+                            <i class="material-icons" style="color: white;">money</i>
+                            <b><span style="color: white;">Sales Approval </span></b>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('listproduct*') ? 'active' : '' }}" href="{{ route('listproduct') }}">
+                            <i class="material-icons" style="color: white;">inventory</i>
+                           <b><span style="color: white;">Registered Users</span></b>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('listproduct*') ? 'active' : '' }}" href="{{ route('listproduct') }}">
+                            <i class="material-icons" style="color: white;">inventory</i>
+                           <b><span style="color: white;">Registered Products</span></b>
+                        </a>
+                    </li>
+                    @endif
 
                      <!--GROUP SEP END -->
 

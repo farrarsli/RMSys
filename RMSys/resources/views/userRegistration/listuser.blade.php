@@ -9,7 +9,7 @@
         <div class="overflow-auto" style="overflow:auto;">
             <div class="table-responsive">
                 <div class="col-lg-2 col-md-2 col-sm-2" style="float: left;">
-                    <a class="btn btn-success" style="float: right; width:100%;" role="button" href="{{ route('register') }}">
+                    <a class="btn btn-success" style="float: right; width:100%;" role="button" href="{{ route('registeruser') }}">
                         <i class="fas fa-plus"></i>&nbsp; Add New User</a><br>
                 </div><br><br><br>
                 <div class="card">

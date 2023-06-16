@@ -28,7 +28,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
 //Profile Registration
-Route::get('/register', [App\Http\Controllers\UserController::class, 'register'])->name('register');
+Route::get('/registeruser', [App\Http\Controllers\UserController::class, 'registeruser'])->name('registeruser');
 Route::get('/listuser', [App\Http\Controllers\UserController::class, 'listuser'])->name('listuser');
 //Add user into database
 Route::post('/addUser', [App\Http\Controllers\UserController::class, 'addUser'])->name('addUser');
@@ -67,3 +67,15 @@ Route::get('/listsales', [App\Http\Controllers\SalesController::class, 'listsale
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/addsales', [App\Http\Controllers\SalesController::class, 'addsales'])->name('addsales');
+Route::post('/insertsales', [App\Http\Controllers\SalesController::class, 'insertsales'])->name('insertsales');
+
+
+//----------------------------------------------Sale Approval----------------------------------------------
+Route::get('/salesapproval', [App\Http\Controllers\SalesController::class, 'salesapproval'])->name('salesapproval');
+Route::get('/approval/{id}', [App\Http\Controllers\SalesController::class, 'approval'])->name('approval');
+Route::get('/reject/{id}', [App\Http\Controllers\SalesController::class, 'reject'])->name('reject');
+
+//----------------------------------------------Stock Request (Clerk)----------------------------------------------
+Route::get('/branchlimit', [App\Http\Controllers\StockController::class, 'branchlimit'])->name('branchlimit');

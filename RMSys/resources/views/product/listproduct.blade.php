@@ -2,14 +2,13 @@
 
 @section('content')
 
-<center><h1>List of Registered Product</h1></center>
-
+<center><h2>List of Registered Product</h2></center>
 <section class="p-5">
     <div class="container" width="100px">
         <div class="overflow-auto" style="overflow:auto;">
             <div class="table-responsive">
                 <div class="col-lg-3 col-md-2 col-sm-2" style="float: left;">
-                    <a class="btn btn-success" style="float: right; width:100%;" role="button" href="{{ route('addproduct') }}">
+                    <a class="btn btn-success" style="float: left; width:70%;" role="button" href="{{ route('addproduct') }}">
                         <i class="fas fa-plus"></i>&nbsp; Add New Product</a><br>
                 </div><br><br><br>
                 <div class="card">
@@ -32,8 +31,8 @@
                             <td>{{ $data->productdetail }}</td>
                             <td>{{ $data->stock }}</td>
                             <td>
-                                <div class="btn-group" style="float: center;">
-                                <a href="{{route('updateProduct',$data->id)}}" class="btn btn-primary">Update Stock</a>
+                                <div class="btn-group">
+                                    <a href="{{route('updateProduct',$data->id)}}" class="btn btn-primary">Update Stock</a>
                                     <button class="btn btn-danger" type="button" onclick="deleteItem(this)" data-id="{{ $data->id }}" data-name="{{ $data->productname }}">Delete Product</button>
                                 </div>
                             </td>

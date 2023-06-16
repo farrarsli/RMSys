@@ -1,8 +1,9 @@
 @extends('layouts.sideNav')
-
 @section('content')
+<link rel="stylesheet" href="{{ asset('css/clock.css') }}">
 
-<center><h1>SALES LIST</h1></center>
+
+<center><h1>Sales List</h1></center>
 
 <section class="p-5">
     <div class="container" width="100px">
@@ -10,12 +11,9 @@
             <div class="table-responsive">
                 <div class="col-lg-2 col-md-2 col-sm-2" style="float: left;">
                 <div class="card">
-                
             </div>
-
-
-                    <a class="btn btn-success" style="float: right; width:100%;" role="button" href="{{ route('register') }}">
-                        <i class="fas fa-plus"></i>&nbsp; Add New User</a><br>
+                    <a class="btn btn-success" style="float: right; width:100%;" role="button" href="{{ route('addsales') }}">
+                        <i class="fas fa-plus"></i>&nbsp; Add New Sales</a><br>
                 </div><br><br><br>
                 <div class="card">
                 <div class="card-body">
@@ -25,7 +23,7 @@
                             <th>Person In Charge</th>
                             <th>Branch</th>
                             <th>Sales Date</th>
-                            <th>IC Number</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,11 +34,11 @@
                             <td>{{ Auth::user()->name }}</td>
                             <td>{{ $data->branchname }}</td>
                             <td>{{ $data->salesdate }}</td>
-                            <td>{{ $data->totalsales }}</td>
+                            <td>{{ $data->sales_status }}</td>
                             <td>
                                 <div class="btn-group" style="float: center;">
-                                
-                                    <button class="btn btn-danger" type="button" onclick="deleteItem(this)" data-id="{{ $data->id }}" data-name="{{ $data->managername }}">Delete</button>
+                                <a href="{{route('updateprofile',$data->id)}}" class="btn btn-primary">View</a>
+                                    <button class="btn btn-danger" type="button" onclick="deleteItem(this)" data-id="{{ $data->id }}" data-name="{{ $data->branchname }}">Delete</button>
                                 </div>
                             </td>
                         </tr>
@@ -118,3 +116,4 @@
     }
     
 </script>
+
