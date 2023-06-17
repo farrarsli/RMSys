@@ -64,7 +64,7 @@
     }
 
     .active {
-      background-color: #717171;
+      background-color: #bd1924;
     }
 
     /* Fading animation */

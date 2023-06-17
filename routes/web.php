@@ -3,17 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 
 Route::get('/', function () {
     if ($user = Auth::user()) {
@@ -58,6 +47,9 @@ Route::post('/editProduct/{id}', [App\Http\Controllers\ProductController::class,
 //delete product from database
 Route::delete('/deleteProduct/{id}',[App\Http\Controllers\ProductController::class, 'deleteProduct'])->name('deleteProduct');
 
+Route::get('/requestproductlist', [App\Http\Controllers\ProductController::class, 'requestproductlist'])->name('requestproductlist');
+
+Route::get('/requestproductdetails/{id}', [App\Http\Controllers\ProductController::class, 'requestproductdetails'])->name('requestproductdetails');
 
 //------------------------------------------MANAGE SALES------------------------------------------
 
@@ -81,3 +73,4 @@ Route::get('/reject/{id}', [App\Http\Controllers\SalesController::class, 'reject
 Route::get('/branchlimit', [App\Http\Controllers\StockController::class, 'branchlimit'])->name('branchlimit');
 Route::get('/setlimit', [App\Http\Controllers\StockController::class, 'setlimit'])->name('setlimit');
 Route::get('/calculateLimitByCategory/{id}', [App\Http\Controllers\SalesController::class, 'calculateLimitByCategory'])->name('calculateLimitByCategory');
+Route::get('/allowrequest/{id}', [App\Http\Controllers\SalesController::class, 'allowrequest'])->name('allowrequest');

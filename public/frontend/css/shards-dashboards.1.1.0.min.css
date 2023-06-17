@@ -5751,7 +5751,7 @@ a.text-accent:hover {
 }
 
 .border-right {
-    border-right: 1px solid #e1e5eb!important
+    border-right: 0px solid #e1e5eb!important
 }
 
 .border-bottom {
@@ -5759,7 +5759,7 @@ a.text-accent:hover {
 }
 
 .border-left {
-    border-left: 1px solid #e1e5eb!important
+    border-left: 0px solid #e1e5eb!important
 }
 
 .rounded {

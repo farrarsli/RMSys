@@ -4,13 +4,13 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Main Sidebar -->
-        <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0" >
-            <div class="main-navbar">
+        <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0" style="box-shadow: none;">
+            <div class="main-navbar" >
                 <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0" >
                     <a class="navbar-brand w-100 mr-0" href="{{ route('dashboard') }}" style="line-height: 25px; background-color: #ffd700;">
                         <div class="d-table m-auto">
                             <img id="main-logo" class="d-inline-block align-center mr-3" style="max-width: 40px;" src="{{ asset('frontend') }}/images/logo.png" alt="RMSys logo">
-                            <span class="d-none d-md-inline ml-1" style="color: white"> {{ config('app.name', 'RMsys') }}</span>
+                            <span class="d-none d-md-inline ml-1" style="color: black"> {{ config('app.name', 'RMsys') }}</span>
                         </div>
                     </a>
                     <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
@@ -59,7 +59,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('listproduct*') ? 'active' : '' }}" href="{{ route('listproduct') }}">
+                        <a class="nav-link {{ request()->routeIs('requestproductlist*') ? 'active' : '' }}" href="{{ route('requestproductlist') }}">
+                        
                             <i class="material-icons" style="color: white;">inventory</i>
                            <b><span style="color: white;">Request Product</span></b>
                         </a>
@@ -100,7 +101,7 @@
         <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
             <div class="main-navbar sticky-top bg-white">
                 <!-- Main Navbar -->
-                <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
+                <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0" style="background-color: #ffd700;">
 
                     <div class="row mt-auto mb-auto ml-3 " style="width: auto;">
 
@@ -109,7 +110,7 @@
                         </div>
 
                     </div>
-                    <ul class="navbar-nav border-left flex-row ml-auto ">
+                    <ul class="navbar-nav border-left flex-row ml-auto " style="border-left: 0.3;">
                         <li class="nav-item border-right dropdown">
                             <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                                 <img class="user-avatar rounded-circle mr-2" src="{{ asset('frontend') }}/images/avatar.jpg" alt="Avatar" width="30px" height="30px" style="vertical-align:baseline">

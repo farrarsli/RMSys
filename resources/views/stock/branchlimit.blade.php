@@ -14,19 +14,21 @@
                 <th>Branch</th>
                 <th>Sales Date</th>
                 <th>Total Sales</th>
+                <th>Branch Status</th>
             </tr>
         </thead>
         <tbody>
 
             @foreach($salesRecord as $data)
-            @if( $data->sales_status== "Approved")
+            @if( $data->sales_status== "Approved" || $data->sales_status== "Request Allowed")
             <tr id="row{{$data->id}}">
 
                 <td>{{ $data->branchname }}</td>
                 <td>{{ $data->salesdate }}</td>
                 <td>{{ $data->totalsales }}</td>
+                <td>{{ $data->sales_status }}</td>
                 <td style="width: 200px;">
-                        <a class="btn btn-primary" role="button" href="{{ route('calculateLimitByCategory',$data->id) }}" style="color: white; width:100%; "><i class="fas fa-eye"></i>&nbsp;View Details</a>
+                        <a class="btn btn-primary" role="button" href="{{ route('calculateLimitByCategory',$data->id) }}" style="color: white; width:100%; "><i class="fas fa-eye"></i>&nbsp;&nbsp;View Details</a>
                 </td>
                 
             </tr>

@@ -18,7 +18,7 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="email">Product Name </label>
-                                                <input type="text" class="form-control" id="productname" name="productname" value="{{$register->productname}}">
+                                                <input type="text" class="form-control" id="productname" name="productname" value="{{$register->productname}}" required>
                                             </div>
                                         </div>
 
@@ -26,18 +26,24 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="email">Product Details </label>
-                                                <input type="text" class="form-control" id="productdetail" name="productdetail" value="{{$register->productdetail}}">
+                                                <input type="text" class="form-control" id="productdetail" name="productdetail" value="{{$register->productdetail}}" required>
                                             </div>
                                         </div>
                                         <br>
                                         <br>
                                         
-                                        <div class="form-row">
-                                            <div class="form-group col-md-12">
-                                                <label for="email">Product Stock </label>
-                                                <input type="number" class="form-control" id="stock" name="stock" value="{{$register->stock}}">
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                                <label for="stock">Stock Quantity </label>
+                                                <input type="number" class="form-control" id="stock" name="stock" value="{{$register->stock}}" required>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                                <label for="email">Product Image </label><br>
+                                                <input type="file" id="myFile" name="product_img" required onchange="previewFile()" required>
                                             </div>
                                         </div>
+
                                         <br>
                                         <div style="float: right;">
                                             <a href="{{ url()->previous() }}" class="btn btn-danger btn-md">Cancel</a>

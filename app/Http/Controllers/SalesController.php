@@ -15,6 +15,7 @@ class SalesController extends Controller
     {
             return view('sales.addsales');
     }
+    
 
     public function listsales()
     {
@@ -36,7 +37,6 @@ class SalesController extends Controller
         $salesdate = $request->input('salesdate');
         $sales_img = $request->file('sales_img');
         $sales_status = 'Pending';
-        $req_status = 'Disallow';
 
         $filename = time() . '.' . $sales_img->getClientOriginalExtension();
         $request->sales_img->move('assets', $filename);
@@ -57,6 +57,20 @@ class SalesController extends Controller
 
         return redirect('/listsales')->with('success', 'User successfully registered');
     }
+
+
+    public function allowrequest($id)
+    {
+         
+        Sales::where('id', '=', $id)
+        ->orderBy('id', 'desc')
+        ->update([
+            'sales_status' => 'Request Allowed',
+        ]);
+        return redirect()->route('branchlimit');
+    }
+
+
 
     //OWNER
     public function salesapproval()

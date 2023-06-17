@@ -27,7 +27,7 @@
                 <td>{{ $data->totalsales }}</td>
                 <td>{{ $data->sales_status }}</td>
                 <td>
-                    <a class="btn btn-primary" data-toggle="modal" data-target="#viewPassModal" style="color: white; width:100%;">View</a>
+                    <a class="btn btn-primary " data-toggle="modal" data-target="#viewPassModal" style="color: white; width:100%;">View</a>
                 </td>
 
             </tr>

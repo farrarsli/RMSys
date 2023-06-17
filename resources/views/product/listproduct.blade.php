@@ -2,7 +2,9 @@
 
 @section('content')
 
-<center><h2>List of Registered Product</h2></center>
+<center>
+    <h2>List of Registered Product</h2>
+</center>
 <section class="p-5">
     <div class="container" width="100px">
         <div class="overflow-auto" style="overflow:auto;">
@@ -12,36 +14,62 @@
                         <i class="fas fa-plus"></i>&nbsp; Add New Product</a><br>
                 </div><br><br><br>
                 <div class="card">
-                <div class="card-body">
-                <table class="table table-bordered" id="dataTable" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Product Name</th>
-                            <th>Product Detail</th>
-                            <th>Stock Available</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($productRecord as $data)
+                    <div class="card-body">
+                        <table class="table table-bordered" id="dataTable" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Product Detail</th>
+                                    <th>Stock Available</th>
+                                    <th>View Image</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($productRecord as $data)
 
-                        <tr id="row{{$data->id}}">
+                                <tr id="row{{$data->id}}">
 
-                            <td>{{ $data->productname }}</td>
-                            <td>{{ $data->productdetail }}</td>
-                            <td>{{ $data->stock }}</td>
-                            <td>
-                                <div class="btn-group">
-                                    <a href="{{route('updateProduct',$data->id)}}" class="btn btn-primary">Update Stock</a>
-                                    <button class="btn btn-danger" type="button" onclick="deleteItem(this)" data-id="{{ $data->id }}" data-name="{{ $data->productname }}">Delete Product</button>
+                                    <td>{{ $data->productname }}</td>
+                                    <td>{{ $data->productdetail }}</td>
+                                    <td>{{ $data->stock }}</td>
+                                    <td>
+                                        <a class=" fas fa-image btn btn-secondary " data-toggle="modal" data-target="#viewPassModal" style="color: white; width:100%;"></a>
+                                    </td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <a href="{{route('updateProduct',$data->id)}}" class="btn btn-primary">Update Stock</a>
+                                            <button class="btn btn-danger" type="button" onclick="deleteItem(this)" data-id="{{ $data->id }}" data-name="{{ $data->productname }}">Delete Product</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <div class="modal fade" id="viewPassModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="myModalLabel">Sales image</h5>
+
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="justify-content-center text-center">
+                                                    <img src="/assets/pass/{{$data->product_img}}" width="400px">
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        
                                 </div>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table></div>
-            </div>
-                
+
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -109,5 +137,4 @@
         });
 
     }
-    
 </script>

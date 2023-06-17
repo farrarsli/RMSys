@@ -1,7 +1,9 @@
 @extends('layouts.sideNav')
 @section('content')
 
-<center><h1>Update User Profile</h1></center><br>
+<center>
+    <h1>Update User Profile</h1>
+</center><br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -18,7 +20,7 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="email">Full Name </label>
-                                                <input type="text" class="form-control" id="name" name="name" value="{{$register->name}}">
+                                                <input type="text" class="form-control" id="name" name="name" value="{{$register->name}}" required>
                                             </div>
                                         </div>
 
@@ -26,21 +28,21 @@
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="email">Email </label>
-                                                <input type="text" class="form-control" id="email" name="email" value="{{$register->email}}">
+                                                <input type="email" class="form-control" id="email" name="email" value="{{$register->email}}" required>
                                             </div>
                                         </div>
                                         <br>
                                         <br>
-                                        
+
                                         <div class="form-group col-md-6">
-                                                <label for="position">User Type</label>
-                                                <select class="form-control" name="category" id="category">
+                                            <label for="position">User Type</label>
+                                            <select class="form-control" name="category" id="category">
 
                                                 <option value="Clerk">Clerk</option>
-                                                    <option value="Manager">Branch Manager</option>
-                                                    <option value="Owner">Owner</option>
-                                                </select>
-                                            </div>
+                                                <option value="Manager">Branch Manager</option>
+                                                <option value="Owner">Owner</option>
+                                            </select>
+                                        </div>
 
                                         <br>
                                         <div style="float: right;">
