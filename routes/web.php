@@ -79,3 +79,5 @@ Route::get('/reject/{id}', [App\Http\Controllers\SalesController::class, 'reject
 
 //----------------------------------------------Stock Request (Clerk)----------------------------------------------
 Route::get('/branchlimit', [App\Http\Controllers\StockController::class, 'branchlimit'])->name('branchlimit');
+Route::get('/setlimit', [App\Http\Controllers\StockController::class, 'setlimit'])->name('setlimit');
+Route::get('/calculateLimitByCategory/{id}', [App\Http\Controllers\SalesController::class, 'calculateLimitByCategory'])->name('calculateLimitByCategory');

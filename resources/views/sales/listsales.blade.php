@@ -8,7 +8,6 @@
 <section class="p-5">
     <div class="container" width="100px">
         <div class="overflow-auto" style="overflow:auto;">
-            <div class="table-responsive">
                 <div class="col-lg-2 col-md-2 col-sm-2" style="float: left;">
                 <div class="card">
             </div>

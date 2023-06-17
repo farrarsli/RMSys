@@ -57,7 +57,7 @@ class ProductController extends Controller
             'stock',
         )->where('product.id', $id)->first();
 
-          return view('product.updateProduct', compact('register'));
+          return view('product.updateproduct', compact('register'));
         
     }
 

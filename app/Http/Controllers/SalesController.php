@@ -36,6 +36,7 @@ class SalesController extends Controller
         $salesdate = $request->input('salesdate');
         $sales_img = $request->file('sales_img');
         $sales_status = 'Pending';
+        $req_status = 'Disallow';
 
         $filename = time() . '.' . $sales_img->getClientOriginalExtension();
         $request->sales_img->move('assets', $filename);
@@ -60,13 +61,13 @@ class SalesController extends Controller
     //OWNER
     public function salesapproval()
     {
-            
             $salesRecord = DB::table('sales')
-            
             ->orderBy('salesdate', 'desc')
             ->get();
+            
         return view('sales.salesapproval', compact('salesRecord'));
     }
+
     //Approve Sales
     public function approval($id)
     {
@@ -86,10 +87,43 @@ class SalesController extends Controller
        
       Sales::where('id', '=', $id)
       ->update([
-
         'sales_status' => 'Rejected',
       ]);
 
       return back()->with('success', 'Sales Rejected');
     }
+
+    public function calculateLimitByCategory($id)
+{
+    // Retrieve the sales record from the database based on the provided ID
+    $salesRecord = Sales::find($id);
+
+    if ($salesRecord) {
+        // Get the total sales value
+        $totalSales = $salesRecord->totalsales;
+
+        // Set the initial limit percentage to 0
+        $limitPercentage = 0;
+
+        // Calculate the limit percentage based on the total sales
+        if ($totalSales < 1000) {
+            $limitPercentage = 10;
+        } elseif ($totalSales >= 1001 && $totalSales <= 2000) {
+            $limitPercentage = 20;
+        } elseif ($totalSales >= 2001 && $totalSales <= 3000) {
+            $limitPercentage = 30;
+        } elseif ($totalSales >= 3001 && $totalSales <= 4000) {
+            $limitPercentage = 40;
+        } elseif ($totalSales >= 4001) {
+            $limitPercentage = 50;
+        }
+
+        // Assign the limit percentage to the sales record
+        $salesRecord->limit = $limitPercentage;
+    }
+
+    // Return the sales record with the updated limit percentage to the view
+    return view('stock.setlimit', compact('salesRecord', 'limitPercentage'));
+}
+
 }

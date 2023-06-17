@@ -7,5 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Request extends Model
 {
-    use HasFactory;
+    protected $table='request'; 
+
+    protected $fillable = [
+        'user_id',
+        'req_status',
+        'limit_stock',
+        'req_stock',
+        'balance_stock',
+    ];
+
+    
+
 }

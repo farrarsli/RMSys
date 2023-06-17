@@ -19,15 +19,10 @@ class StockController extends Controller
     
     public function limitdetails( $id)
     {
-        $register = DB::table('sales')->select(
-            'id',
-            'name',
-            'email',
-            'password',
-            'category',
-        )->where('users.id', '=', $id)->first();
-
-          return view('userRegistration.updateprofile', compact('register'));
+        $salesRecord = DB::table('sales')
+        ->where('id',$id)
+            ->get();
+        return view('stock.setlimit', compact('salesRecord'));
         
     }
 }

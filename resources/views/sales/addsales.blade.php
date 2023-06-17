@@ -3,7 +3,7 @@
 @section('content')
 
 
-<center><h1>Add Sales</h1></center><br>
+<center><h2>Add Sales</h2></center><br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -68,7 +68,7 @@
                                         <br>
                                         <div style="float: right;">
                                             <a href="{{ url()->previous() }}" class="btn btn-danger btn-md">Cancel</a>
-                                            <button type="submit" id="formNew" class="btn btn-primary">Register</button>
+                                            <button type="submit" id="formNew" class="btn btn-primary">Submit</button>
                                         </div>
 
 

@@ -7,13 +7,13 @@
 
 <div class="card">
 <div class="card-body">
+    
     <table class="table table-bordered" id="dataTable" cellspacing="0">
         <thead>
             <tr>
                 <th>Branch</th>
                 <th>Sales Date</th>
                 <th>Total Sales</th>
-                <th>Status</th>
             </tr>
         </thead>
         <tbody>
@@ -25,10 +25,8 @@
                 <td>{{ $data->branchname }}</td>
                 <td>{{ $data->salesdate }}</td>
                 <td>{{ $data->totalsales }}</td>
-                <td>{{ $data->sales_status }}</td>
                 <td style="width: 200px;">
-                        <a class="btn btn-primary" role="button" href="{{ route('addsales') }}" style="color: white; width:100%; "><i class="fas fa-eye"></i>&nbsp;View Details</a>
-                    
+                        <a class="btn btn-primary" role="button" href="{{ route('calculateLimitByCategory',$data->id) }}" style="color: white; width:100%; "><i class="fas fa-eye"></i>&nbsp;View Details</a>
                 </td>
                 
             </tr>
