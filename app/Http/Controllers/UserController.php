@@ -47,15 +47,17 @@ class UserController extends Controller
         $email = $request->input('email');
         $ic = $request->input('ic');
         $category = $request->input('category');
+        $profile_img = $request->file('profile_img');
 
+        $filename = time() . '.' . $profile_img->getClientOriginalExtension();
+        $request->profile_img->move('assets', $filename);
 
         $data = array(
-
-
             'name' => $name,
             'email' => $email,
             'password' => Hash::make($ic),
             'category' => $category,
+            'profile_img' => $profile_img,
 
         );
 

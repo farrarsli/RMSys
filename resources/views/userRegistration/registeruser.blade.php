@@ -28,14 +28,12 @@
                                                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
                                             </div>
                                         </div>
-                                        <br>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="email">Email </label>
                                                 <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                                             </div>
                                         </div>
-                                        <br>
                                         <div class="row">
                                             <div class="form-group col-md-6">
                                             <label for="email">IC Number </label>
@@ -51,20 +49,29 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <br>
+
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
+                                            <label for="profile">Profile Image </label>
+                                                <br><input type="file" id="myFile" name="profile_img" required onchange="previewFile()" required>
+                                            </div>
+
+                                            <div class="form-group col-md-6">
+                                            <label for="email">Preview </label><br>
+                                            <img id="previewImage" src="#" alt="Preview" style="display: none; width: 200px; border-style: dashed;">
+                                            </div>
+                                        </div>
                                         <div style="float: right;">
-                                            <a href="{{ url()->previous() }}" class="btn btn-danger btn-md">Cancel</a>
+                                            <br><a href="{{ url()->previous() }}" class="btn btn-danger btn-md">Cancel</a>
                                             <button type="submit" id="formNew" class="btn btn-primary">Register</button>
                                         </div>
-
-
                                     </form>
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>
-            </div>
+            </div><br>
         </div>
     </div>
 </div>
@@ -77,3 +84,22 @@
         selectedInput.style.display = "block";
     });
 </script>
+<script>
+    function previewFile() {
+      const fileInput = document.getElementById('myFile');
+      const previewImage = document.getElementById('previewImage');
+
+      const file = fileInput.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        reader.addEventListener('load', function () {
+          previewImage.src = reader.result;
+          previewImage.style.display = 'block';
+        });
+
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>

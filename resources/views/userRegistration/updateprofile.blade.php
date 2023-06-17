@@ -23,18 +23,14 @@
                                                 <input type="text" class="form-control" id="name" name="name" value="{{$register->name}}" required>
                                             </div>
                                         </div>
-
-                                        <br>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="email">Email </label>
                                                 <input type="email" class="form-control" id="email" name="email" value="{{$register->email}}" required>
                                             </div>
                                         </div>
-                                        <br>
-                                        <br>
-
-                                        <div class="form-group col-md-6">
+                                        <div class="row">
+                                            <div class="form-group col-md-6">
                                             <label for="position">User Type</label>
                                             <select class="form-control" name="category" id="category">
 
@@ -42,8 +38,14 @@
                                                 <option value="Manager">Branch Manager</option>
                                                 <option value="Owner">Owner</option>
                                             </select>
-                                        </div>
+                                            </div>
 
+                                            <div class="form-group col-md-6">
+                                                <label for="email">Profile Image </label><br>
+                                                <input type="file" id="myFile" name="profile_img" required onchange="previewFile()" required>
+                                            </div>
+                                        </div><br>
+                                        <center><img id="previewImage" src="#" alt="Preview" style="display: none; width: 150px; border-style: dashed;"></center>
                                         <br>
                                         <div style="float: right;">
                                             <a href="{{ url()->previous() }}" class="btn btn-danger btn-md">Cancel</a>
@@ -61,3 +63,22 @@
     </div>
 </div>
 @endsection
+<script>
+    function previewFile() {
+      const fileInput = document.getElementById('myFile');
+      const previewImage = document.getElementById('previewImage');
+
+      const file = fileInput.files[0];
+
+      if (file) {
+        const reader = new FileReader();
+
+        reader.addEventListener('load', function () {
+          previewImage.src = reader.result;
+          previewImage.style.display = 'block';
+        });
+
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>

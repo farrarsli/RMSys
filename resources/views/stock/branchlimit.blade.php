@@ -4,10 +4,37 @@
 <center>
     <h2>Branch Limit</h2>
 </center><br>
+<section class="p-5">
+    <div class="container" width="100px">
+        <div class="overflow-auto" style="overflow:auto;">
+            <div class="table-responsive">
+          
+            <script>
+                            // to search the REPAIR FORM 
+                            $(document).ready(function() {
+                                $('#dataTable').DataTable({
+                                    "order": [
+                                        [0, "asc"]
+                                    ],
+                                    "language": {
+                                        search: '<i class="fa fa-search" aria-hidden="true"></i>',
+                                        searchPlaceholder: 'Search By Customer Name'
+                                    }
+                                });
 
+                                // filter REPAIR FORM
+                                $('.dataTables_filter input[type="search"]').css({
+                                    'width': '300px',
+                                    'display': 'inline-block',
+                                    'font-size': '15px',
+                                    'font-weight': '400'
+                                });
+                            });
+                        </script>
+            
 <div class="card">
 <div class="card-body">
-    
+
     <table class="table table-bordered" id="dataTable" cellspacing="0">
         <thead>
             <tr>
@@ -56,6 +83,9 @@
     </table>
 </div>
 </div>
+</div>
+</div>
+</div></section>
 
 @endsection
 
