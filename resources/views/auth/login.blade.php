@@ -12,7 +12,7 @@
                 
             <div class="card" style="border: solid black">
                 <div class="card-header d-flex justify-content-center">
-                    <h3>{{ __('Login') }}</h3>
+                    <h3>{{ __('Login Page') }}</h3>
                 </div>
 
                 <div class="card-body">
