@@ -62,7 +62,7 @@
                 <td>{{ $data->stock }}</td>
                 <td>
                     <div class="btn-group">
-                    <a class="btn btn-primary" role="button" href="{{ route('requestproductdetails', ['id' => $data->id, 'salesid' => request()->segment(2)])F }}" style="color: white; width:100%; "><i class="fas fa-eye"></i>&nbsp;View Details</a>
+                    <a class="btn btn-primary" role="button" href="{{ route('requestproductdetails', ['id' => $data->id, 'salesid' => request()->segment(2)]) }}" style="color: white; width:100%; "><i class="fas fa-eye"></i>&nbsp;View Details</a>
                     </div>
                 </td>
             </tr>

@@ -129,20 +129,19 @@ class ProductController extends Controller
                 $limitPercentage = 50;
             }
     
-            // Assign the limit percentage to the sales record
+            // Assign the limit percentage to sales record
             $salesRecord->limit = $limitPercentage;
 
+                $productRecord = DB::table('product')
+                ->where('id', $id)
+                ->orderBy('productname', 'asc')
+                ->first();
+            
+            $stock = $productRecord->stock; // Retrieve stock
+            
+            $productLimit = $stock * ($limitPercentage / 100);
+            
+            return view('product.requestproductdetails', compact('productRecord', 'salesRecord', 'limitPercentage', 'productLimit'));
         
-
-
-        $productRecord = DB::table('product')
-            ->where('id', $id)
-
-            ->orderBy('productname', 'asc')
-            ->first();
-
-        // Return the sales record with the updated limit percentage to the view
-
-        return view('product.requestproductdetails', compact('productRecord', 'salesRecord', 'limitPercentage'));
     }
 }
