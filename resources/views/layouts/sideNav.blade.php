@@ -38,13 +38,13 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('listproduct*') ? 'active' : '' }}" href="{{ route('listproduct') }}">
-                            <i class="material-icons" style="color: white;">work</i>
+                            <i class="material-icons" style="color: white;">shopping_cart</i>
                             <span style="color: white;">Manage Product</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('branchlimit*') ? 'active' : '' }}" href="{{ route('branchlimit') }}">
-                            <i class="material-icons" style="color: white;">work</i>
+                            <i class="material-icons" style="color: white;">place</i>
                             <span style="color: white;">Branch Limit</span>
                         </a>
                     </li>
