@@ -24,17 +24,6 @@
 </script>
 
 @foreach($salesRecord as $data)
-@if( $data->sales_status== "Rejected" || $data->sales_status== "Approved")
-<div class="card">
-    <div class="card-body">
-        <center>
-            <h2>You are not allowed to request yet</h2><br>
-            <h4>You are required to update your <strong>weekly sales</strong> first before proceed to <strong>Produt Request</strong>.</h4>
-        </center>
-    </div>
-</div>
-@endif
-
 @if($data->sales_status== "Request Allowed")
 
 
