@@ -23,7 +23,7 @@
     });
 </script>
 <center>
-    <h2>Sales Approval</h2>
+    <h3>Sales Approval</h3>
 </center><br>
 
 <div class="card">
