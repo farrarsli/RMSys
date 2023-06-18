@@ -19,6 +19,13 @@
 
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
+                                                <img id="imgPreview" src=""
+                                                style="width: 150px; height: 150px; border-style: dashed; margin:auto;display:flex; border-radius: 90px;">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
                                                 <label for="email">Full Name </label>
                                                 <input type="text" class="form-control" id="name" name="name" value="{{$register->name}}" required>
                                             </div>

@@ -1,7 +1,28 @@
 @extends('layouts.sideNav')
-
 @section('content')
 
+<script>
+    // to search the REPAIR FORM 
+    $(document).ready(function() {
+        $('#dataTable').DataTable({
+            "order": [
+                [0, "asc"]
+            ],
+            "language": {
+                search: '<i class="fa fa-search" aria-hidden="true"></i>',
+                searchPlaceholder: 'Search By Customer Name'
+            }
+        });
+
+        // filter REPAIR FORM
+        $('.dataTables_filter input[type="search"]').css({
+            'width': '300px',
+            'display': 'inline-block',
+            'font-size': '15px',
+            'font-weight': '400'
+        });
+    });
+</script>
 <center><h2>List of Registered User</h2></center>
 <section class="p-5">
     <div class="container" width="100px">
@@ -10,28 +31,7 @@
                 <div class="col-lg-2 col-md-2 col-sm-2" style="float: left;">
                     <a class="btn btn-success" style="float: right; width:100%;" role="button" href="{{ route('registeruser') }}">
                         <i class="fas fa-plus"></i>&nbsp; Add New User</a> 
-                        <script>
-                            // to search the REPAIR FORM 
-                            $(document).ready(function() {
-                                $('#dataTable').DataTable({
-                                    "order": [
-                                        [0, "asc"]
-                                    ],
-                                    "language": {
-                                        search: '<i class="fa fa-search" aria-hidden="true"></i>',
-                                        searchPlaceholder: 'Search By Customer Name'
-                                    }
-                                });
-
-                                // filter REPAIR FORM
-                                $('.dataTables_filter input[type="search"]').css({
-                                    'width': '300px',
-                                    'display': 'inline-block',
-                                    'font-size': '15px',
-                                    'font-weight': '400'
-                                });
-                            });
-                        </script>
+                        
                         <br>
                 </div><br><br><br>
                 <div class="card">

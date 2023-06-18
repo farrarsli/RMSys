@@ -254,32 +254,32 @@
   </style>
 </head>
 <center>
-  <h3>Welcome! You are successfully logged in as a Clerk.</h3>
+  <h4>Welcome! You are successfully logged in as a Clerk.</h4>
 </center><br>
 <div class="container">
   <div class="row" style="width:100%">
-    <div class="col-md-8">
+    <center><div class="col-md-12">
       <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
       <!----------------------IMAGE SLIDESHOW--------------------------->
       <div class="slideshow-container">
         <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img1.jpg" style="width:1040px; height:210px;">
+          <img src="{{ asset('frontend') }}/images/img1.jpg" style="width:100%";>
           <div>Branch: Jalan Bacang, Kota Masai</div>
         </div>
         <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img2.jpg" style="width:1040px; height:210px">
+          <img src="{{ asset('frontend') }}/images/img2.jpg" style="width:100%">
           <div>Branch: Jalan Kenari, Taman Scientex</div>
         </div>
         <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img3.jpg" style="width:1040px; height:210px">
+          <img src="{{ asset('frontend') }}/images/img3.jpg" style="width:100%">
           <div>Branch: Jalan Betik, Kota Masai</div>
         </div>
         <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img4.jpg" style="width:1040px; height:210px">
+          <img src="{{ asset('frontend') }}/images/img4.jpg" style="width:100%">
           <div>Branch: Jalan Pelanduk, Taman Scientex</div>
         </div>
         <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img5.jpg" style="width:1040px; height:210px">
+          <img src="{{ asset('frontend') }}/images/img5.jpg" style="width:100%">
           <div>Branch: Jalan Aurora, Taman Air Biru</div>
         </div>
       </div>
@@ -291,7 +291,7 @@
       <span class="dot"></span>
       <span class="dot"></span>
       <span class="dot"></span>
-    </div>
+    </div></center>
   </div>
 </div>
 

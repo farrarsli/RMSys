@@ -258,28 +258,28 @@
 </center><br>
 <div class="container">
   <div class="row" style="width:100%">
-    <div class="col-md-8">
+    <div class="col-md-12">
       <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
       <!----------------------IMAGE SLIDESHOW--------------------------->
       <div class="slideshow-container">
         <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img1.jpg" style="width:1040px; height:210px;">
+          <img src="{{ asset('frontend') }}/images/img1.jpg" style="width:100%;">
           <div>Branch: Jalan Bacang, Kota Masai</div>
         </div>
         <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img2.jpg" style="width:1040px; height:210px">
+          <img src="{{ asset('frontend') }}/images/img2.jpg" style="width:100%;">
           <div>Branch: Jalan Kenari, Taman Scientex</div>
         </div>
         <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img3.jpg" style="width:1040px; height:210px">
+          <img src="{{ asset('frontend') }}/images/img3.jpg" style="width:100%;">
           <div>Branch: Jalan Betik, Kota Masai</div>
         </div>
         <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img4.jpg" style="width:1040px; height:210px">
+          <img src="{{ asset('frontend') }}/images/img4.jpg" style="width:100%;">
           <div>Branch: Jalan Pelanduk, Taman Scientex</div>
         </div>
         <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img5.jpg" style="width:1040px; height:210px">
+          <img src="{{ asset('frontend') }}/images/img5.jpg" style="width:100%;">
           <div>Branch: Jalan Aurora, Taman Air Biru</div>
         </div>
       </div>
@@ -331,7 +331,11 @@
               </a>
               <div class="circle-tile-content yellow">
                 <div class="circle-tile-description text-faded">Uploaded Sales</div>
-                <div class="circle-tile-number text-faded ">14</div>
+                <div class="circle-tile-number text-faded ">
+
+                  {{$count}}
+
+                </div>
                 <a class="circle-tile-footer" href="#">More Info<i class="fa fa-chevron-circle-right"></i></a>
               </div>
             </div>

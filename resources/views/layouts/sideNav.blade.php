@@ -58,13 +58,6 @@
                             <b><span style="color: white;">Sales</span></b>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('requestproductlist*') ? 'active' : '' }}" href="{{ route('requestproductlist') }}">
-                        
-                            <i class="material-icons" style="color: white;">inventory</i>
-                           <b><span style="color: white;">Request Product</span></b>
-                        </a>
-                    </li>
                     @endif
 
                     <!-- OWNER SIDENAV-->

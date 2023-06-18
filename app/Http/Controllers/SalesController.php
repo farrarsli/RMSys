@@ -47,7 +47,7 @@ class SalesController extends Controller
             'branchname' => $branchname,
             'totalsales' => $totalsales,
             'salesdate' => $salesdate,
-            'sales_img' => $sales_img,
+            'sales_img' => $filename,
             'sales_status' => $sales_status,
         );
 

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Models\Sales;
 
 class ProductController extends Controller
 {
@@ -41,7 +42,7 @@ class ProductController extends Controller
             'productname' => $productname,
             'productdetail' => $productdetail,
             'stock' => $stock,
-            'product_img' => $product_img,
+            'product_img' => $filename,
         );
 
         //dd($data);
@@ -88,15 +89,15 @@ class ProductController extends Controller
         }
     }
 
-    public function requestproductlist()
+    public function requestproductlist($id)
     {
         $productRecord = DB::table('product')
             ->orderBy('productname', 'asc')
             ->get();
 
-        $id = Auth::user()->id;
+        $user_id = Auth::user()->id;
         $salesRecord = DB::table('sales')
-            ->where('user_id', $id)
+            ->where('user_id', $user_id)
 
             ->orderBy('branchname', 'asc')
             ->get();
@@ -104,8 +105,35 @@ class ProductController extends Controller
         return view('product.requestproductlist', compact('productRecord', 'salesRecord'));
     }
 
-    public function requestproductdetails($id)
+    public function requestproductdetails(Request $request, $salesid, $id)
     {
+        // Retrieve the sales record from the database based on the provided ID
+        $salesRecord = Sales::find($salesid);
+
+            // Get the total sales value
+            $totalSales = $salesRecord->totalsales;
+    
+            // Set the initial limit percentage to 0
+            $limitPercentage = 0;
+    
+            // Calculate the limit percentage based on the total sales
+            if ($totalSales < 1000) {
+                $limitPercentage = 10;
+            } elseif ($totalSales >= 1001 && $totalSales <= 2000) {
+                $limitPercentage = 20;
+            } elseif ($totalSales >= 2001 && $totalSales <= 3000) {
+                $limitPercentage = 30;
+            } elseif ($totalSales >= 3001 && $totalSales <= 4000) {
+                $limitPercentage = 40;
+            } elseif ($totalSales >= 4001) {
+                $limitPercentage = 50;
+            }
+    
+            // Assign the limit percentage to the sales record
+            $salesRecord->limit = $limitPercentage;
+
+        
+
 
         $productRecord = DB::table('product')
             ->where('id', $id)
@@ -113,11 +141,8 @@ class ProductController extends Controller
             ->orderBy('productname', 'asc')
             ->first();
 
-        $salesRecord = DB::table('sales')
-            ->where('id', $id)
-            ->first();
+        // Return the sales record with the updated limit percentage to the view
 
-
-        return view('product.requestproductdetails', compact('productRecord', 'salesRecord'));
+        return view('product.requestproductdetails', compact('productRecord', 'salesRecord', 'limitPercentage'));
     }
 }

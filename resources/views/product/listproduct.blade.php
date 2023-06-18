@@ -44,7 +44,7 @@
                                     <th>Product Name</th>
                                     <th>Product Detail</th>
                                     <th>Stock Available</th>
-                                    <th>View Image</th>
+                                    <th>Product Image</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -76,7 +76,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="justify-content-center text-center">
-                                                    <img src="/assets/pass/{{$data->product_img}}" width="400px">
+                                                    <img src="/assets/{{$data->product_img}}" width="400px">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

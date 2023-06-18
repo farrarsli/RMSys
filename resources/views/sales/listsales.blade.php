@@ -1,7 +1,28 @@
 @extends('layouts.sideNav')
 @section('content')
 <link rel="stylesheet" href="{{ asset('css/clock.css') }}">
+<script>
+    // to search the REPAIR FORM 
+    $(document).ready(function() {
+        $('#dataTable').DataTable({
+            "order": [
+                [0, "asc"]
+            ],
+            "language": {
+                search: '<i class="fa fa-search" aria-hidden="true"></i>',
+                searchPlaceholder: 'Search By Customer Name'
+            }
+        });
 
+        // filter REPAIR FORM
+        $('.dataTables_filter input[type="search"]').css({
+            'width': '300px',
+            'display': 'inline-block',
+            'font-size': '15px',
+            'font-weight': '400'
+        });
+    });
+</script>
 
 <center><h1>Sales List</h1></center>
 
@@ -23,6 +44,7 @@
                             <th>Branch</th>
                             <th>Sales Date</th>
                             <th>Status</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,10 +57,17 @@
                             <td>{{ $data->salesdate }}</td>
                             <td>{{ $data->sales_status }}</td>
                             <td>
-                                <div class="btn-group" style="float: center;">
-                                <a href="{{route('updateprofile',$data->id)}}" class="btn btn-primary">View</a>
-                                    <button class="btn btn-danger" type="button" onclick="deleteItem(this)" data-id="{{ $data->id }}" data-name="{{ $data->branchname }}">Delete</button>
+                            @if( $data->sales_status == "Request Allowed")
+                                <div class="btn-group" style="width:100%;">
+                                <a href="{{route('requestproductlist',$data->id)}}" class="btn btn-primary" style="width:50%;">Request</a>
+                                    <button class="btn btn-danger" type="button" onclick="deleteItem(this)" data-id="{{ $data->id }}" data-name="{{ $data->branchname }}" style="width:50%;">Delete</button>
                                 </div>
+                            @else
+                                <div class="btn-group" style="width:100%;">
+                                    <button class="btn btn-danger" type="button" onclick="deleteItem(this)" data-id="{{ $data->id }}" data-name="{{ $data->branchname }}" style="width:100%;">Delete</button>
+                                </div>
+                            @endif
+
                             </td>
                         </tr>
                         @endforeach

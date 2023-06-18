@@ -47,9 +47,9 @@ Route::post('/editProduct/{id}', [App\Http\Controllers\ProductController::class,
 //delete product from database
 Route::delete('/deleteProduct/{id}',[App\Http\Controllers\ProductController::class, 'deleteProduct'])->name('deleteProduct');
 
-Route::get('/requestproductlist', [App\Http\Controllers\ProductController::class, 'requestproductlist'])->name('requestproductlist');
+Route::get('/requestproductlist/{id}', [App\Http\Controllers\ProductController::class, 'requestproductlist'])->name('requestproductlist');
 
-Route::get('/requestproductdetails/{id}', [App\Http\Controllers\ProductController::class, 'requestproductdetails'])->name('requestproductdetails');
+Route::get('/requestproductdetails/{salesid}/{id}', [App\Http\Controllers\ProductController::class, 'requestproductdetails'])->name('requestproductdetails');
 
 //------------------------------------------MANAGE SALES------------------------------------------
 

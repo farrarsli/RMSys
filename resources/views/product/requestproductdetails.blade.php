@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="form-group col-md-12">
                                             <label for="email">Limit set for product request: </label>
-                                            <a>{{ $limitPercentage }}</a>
+                                            <a>{{ $limitPercentage }} %</a>
                                         </div>
 
                                         <!--input stock-->
