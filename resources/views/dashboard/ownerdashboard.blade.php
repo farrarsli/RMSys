@@ -255,104 +255,82 @@
 </head>
 <center>
   <h3>Welcome! You are successfully logged in as a Owner.</h3>
-</center><br>
-<div class="container">
-  <div class="row" style="width:100%">
-    <div class="col-md-8">
-      <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-      <!----------------------IMAGE SLIDESHOW--------------------------->
-      <div class="slideshow-container">
-        <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img1.jpg" style="width:1040px; height:210px;">
-          <div>Branch: Jalan Bacang, Kota Masai</div>
-        </div>
-        <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img2.jpg" style="width:1040px; height:210px">
-          <div>Branch: Jalan Kenari, Taman Scientex</div>
-        </div>
-        <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img3.jpg" style="width:1040px; height:210px">
-          <div>Branch: Jalan Betik, Kota Masai</div>
-        </div>
-        <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img4.jpg" style="width:1040px; height:210px">
-          <div>Branch: Jalan Pelanduk, Taman Scientex</div>
-        </div>
-        <div class="mySlides fade">
-          <img src="{{ asset('frontend') }}/images/img5.jpg" style="width:1040px; height:210px">
-          <div>Branch: Jalan Aurora, Taman Air Biru</div>
-        </div>
-      </div>
-    </div>
-    <!----------------------------DOT-------------------------------->
-    <div style="text-align:center; width:100%">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </div>
-</div>
+</center>
+<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 
 <!-----------------------------------------------INFO---------------------------------------------------->
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="card" style="width: 90%;">
+      <div class="card-body">
+        <div id="columnchart_material" style="width: 100%;"></div>
+      </div>
+    </div>
+       
+  </div>
+</div>
+<div class="col-sm-12">
 <div class="container bootstrap snippet">
   <div class="row">
     <div class="col-sm-4">
-      <div class="card" style="height:210px">
+      <div class="card" style="height:180px">
         <div class="card-body">
           <div class=" col-sm-18">
             <div class="circle-tile">
               <a href="#">
-                <div class="circle-tile-heading dark-blue">
+                <div class="circle-tile-heading green  ">
                   <i class="fa fa-file-text fa-fw fa-2x"></i>
                 </div>
               </a>
-              <div class="circle-tile-content dark-blue">
-                <div class="circle-tile-description text-faded">Stock Requested</div>
-                <div class="circle-tile-number text-faded">23</div>
-                <a class="circle-tile-footer" href ="#">More Info<i class="fa fa-chevron-circle-right"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="col-sm-4">
-      <div class="card" style="height:210px">
-        <div class="card-body">
-          <div class=" col-sm-14">
-            <div class="circle-tile ">
-              <a href="#">
-                <div class="circle-tile-heading yellow"><i class="fa fa-file-text fa-fw fa-2x"></i>
-                </div>
-              </a>
-              <div class="circle-tile-content yellow">
-                <div class="circle-tile-description text-faded">Uploaded Sales</div>
-                <div class="circle-tile-number text-faded ">14</div>
-                <a class="circle-tile-footer" href="#">More Info<i class="fa fa-chevron-circle-right"></i></a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-sm-4">
-      <div class="card" style="height:210px">
-        <div class="card-body">
-          <div class=" col-sm-14">
-            <div class="circle-tile ">
-              <a href="#">
-                <div class="circle-tile-heading green"><i class="fa fa-file-text fa-fw fa-2x"></i>
-                </div>
-              </a>
-              <div class="circle-tile-content green">
+              <div class="circle-tile-content green" style="border-radius: 10px;">
                 <div class="circle-tile-description text-faded">Available Product</div>
-                <div class="circle-tile-number text-faded ">42</div>
-                <a class="circle-tile-footer" href="#">More Info<i class="fa fa-chevron-circle-right"></i></a>
+                <div class="circle-tile-number text-faded">
+                  {{$countproduct}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-sm-4">
+      <div class="card" style="height:180px">
+        <div class="card-body">
+          <div class=" col-sm-14">
+            <div class="circle-tile ">
+              <a href="#">
+                <div class="circle-tile-heading blue"><i class="fa fa-file-text fa-fw fa-2x"></i>
+                </div>
+              </a>
+              <div class="circle-tile-content blue" style="border-radius: 10px;">
+                <div class="circle-tile-description text-faded">Uploaded Sales</div>
+                <div class="circle-tile-number text-faded ">
+
+                  {{$countsales}}
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <div class="card" style="height:180px">
+        <div class="card-body">
+          <div class=" col-sm-14">
+            <div class="circle-tile ">
+              <a href="#">
+                <div class="circle-tile-heading orange"><i class="fa fa-file-text fa-fw fa-2x"></i>
+                </div>
+              </a>
+              <div class="circle-tile-content orange" style="border-radius: 10px;">
+                <div class="circle-tile-description text-faded">Stock Requested</div>
+                <div class="circle-tile-number text-faded ">{{$countrequest}}</div>
               </div>
             </div>
           </div>
@@ -362,32 +340,47 @@
 
   </div>
 </div>
+</div>
+</body>
 
-<script>
-  let slideIndex = 0;
-  showSlides();
+</html>
+@endsection
 
-  function showSlides() {
-    let i;
-    let slides = document.getElementsByClassName("mySlides");
-    let dots = document.getElementsByClassName("dot");
-    for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-      slides[i].style.left = "100%"; // Hide slides off the right side
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) {
-      slideIndex = 1
-    }
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    slides[slideIndex - 1].style.left = "0"; // Show slide by moving it from right to left
-    dots[slideIndex - 1].className += " active";
-    setTimeout(showSlides, 2000); // Change slide every 2 seconds
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+  google.charts.load('current', {
+    'packages': ['bar']
+  });
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    // Get the current date in JavaScript
+    var currentDate = new Date().toLocaleDateString();
+
+    var data = google.visualization.arrayToDataTable([
+      ['Status', 'Pending', 'Approved', 'Rejected', 'Request Allowed'],
+      [currentDate, <?php echo $countPending; ?>, <?php echo $countApproved; ?>,
+        <?php echo $countRejected; ?>, <?php echo $countAllowed; ?>
+      ]
+    ]);
+
+    var options = {
+      chart: {
+        title: 'Count Status for Request Product Process',
+        subtitle: 'Total count for each status ' + currentDate,
+      },
+      chartArea: {
+        width: '90%',
+        height: '40%',
+      }
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+    chart.draw(data, google.charts.Bar.convertOptions(options));
   }
 </script>
+
 <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
 <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'>
 </script>
@@ -395,7 +388,3 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-</body>
-
-</html>
-@endsection

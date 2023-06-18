@@ -19,7 +19,7 @@
 
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
-                                                <img id="imgPreview" src=""
+                                                <img id="imgPreview" src="/assets/{{$register->profile_img}}"
                                                 style="width: 150px; height: 150px; border-style: dashed; margin:auto;display:flex; border-radius: 90px;">
 
                                             </div>

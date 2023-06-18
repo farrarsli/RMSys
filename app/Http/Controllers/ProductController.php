@@ -22,6 +22,16 @@ class ProductController extends Controller
         return view('product.listproduct', compact('productRecord'));
     }
 
+    public function ownerproductlist()
+    {
+        $productRecord = DB::table('product')
+
+
+            ->orderBy('productname', 'asc')
+            ->get();
+        return view('product.ownerproductlist', compact('productRecord'));
+    }
+
     //go to add product page
     public function addproduct()
     {
@@ -61,6 +71,7 @@ class ProductController extends Controller
             'productname',
             'productdetail',
             'stock',
+            'product_img',
         )->where('product.id', $id)->first();
 
         return view('product.updateproduct', compact('register'));
@@ -74,6 +85,7 @@ class ProductController extends Controller
         $product->productname = $request->input('productname');
         $product->productdetail = $request->input('productdetail');
         $product->stock = $request->input('stock');
+        $product->product_img = $request->file('product_img');
         $product->update();
 
         return redirect()->route('listproduct')

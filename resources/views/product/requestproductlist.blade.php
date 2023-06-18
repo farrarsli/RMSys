@@ -1,6 +1,27 @@
 @extends('layouts.sideNav')
 @section('content')
+<script>
+    // to search the REPAIR FORM 
+    $(document).ready(function() {
+        $('#dataTable').DataTable({
+            "order": [
+                [2, "desc"]
+            ],
+            "language": {
+                search: '<i class="fa fa-search" aria-hidden="true"></i>',
+                searchPlaceholder: 'Search By Customer Name'
+            }
+        });
 
+        // filter REPAIR FORM
+        $('.dataTables_filter input[type="search"]').css({
+            'width': '300px',
+            'display': 'inline-block',
+            'font-size': '15px',
+            'font-weight': '400'
+        });
+    });
+</script>
 
 @foreach($salesRecord as $data)
 @if( $data->sales_status== "Rejected" || $data->sales_status== "Approved")

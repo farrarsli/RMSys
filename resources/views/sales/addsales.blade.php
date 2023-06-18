@@ -36,10 +36,11 @@
                                             <div class="form-group col-md-12">
                                             <label for="branchname">Branch Name </label><br>
                                                 <select class="form-control" name="branchname" id="branchname" required>
-                                                    <option value="Kelisa">Jalan Kelisa, Taman Kota Masai</option>
-                                                    <option value="Kenari">Jalan Kenari, Taman Scientex</option>
-                                                    <option value="Betik">Jalan Betik, Taman Cendana</option>
-                                                    <option value="Pelanduk">Jalan Pelanduk, Taman Scientex</option>
+                                                    <option value="Kelisa, Kota Masai">Jalan Kelisa, Taman Kota Masai</option>
+                                                    <option value="Kenari, Scientex">Jalan Kenari, Taman Scientex</option>
+                                                    <option value="Betik, Cendana">Jalan Betik, Taman Cendana</option>
+                                                    <option value="Pelanduk, Scientex">Jalan Pelanduk, Taman Scientex</option>
+                                                    <option value="Sejora, Air Biru">Jalan Pulasan, Taman Air Biru</option>
                                                 </select>
                                             </div>
                                         </div>

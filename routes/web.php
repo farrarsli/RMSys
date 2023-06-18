@@ -19,6 +19,7 @@ Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'inde
 //Profile Registration
 Route::get('/registeruser', [App\Http\Controllers\UserController::class, 'registeruser'])->name('registeruser');
 Route::get('/listuser', [App\Http\Controllers\UserController::class, 'listuser'])->name('listuser');
+Route::get('/owneruserlist', [App\Http\Controllers\UserController::class, 'owneruserlist'])->name('owneruserlist');
 //Add user into database
 Route::post('/addUser', [App\Http\Controllers\UserController::class, 'addUser'])->name('addUser');
 
@@ -30,6 +31,7 @@ Route::post('/updateUser/{id}', [App\Http\Controllers\UserController::class, 'up
 Route::post('/deleteItem/{id}', [App\Http\Controllers\UserController::class, 'deleteItem'])->name('deleteItem');
 //delete user from database
 Route::delete('/delprofile/{id}',[App\Http\Controllers\UserController::class, 'delprofile'])->name('delprofile');
+
 
 
 //------------------------------------------MANAGE PRODUCT------------------------------------------log
@@ -50,7 +52,7 @@ Route::delete('/deleteProduct/{id}',[App\Http\Controllers\ProductController::cla
 Route::get('/requestproductlist/{id}', [App\Http\Controllers\ProductController::class, 'requestproductlist'])->name('requestproductlist');
 
 Route::get('/requestproductdetails/{salesid}/{id}', [App\Http\Controllers\ProductController::class, 'requestproductdetails'])->name('requestproductdetails');
-
+Route::get('/ownerproductlist', [App\Http\Controllers\ProductController::class, 'ownerproductlist'])->name('ownerproductlist');
 //------------------------------------------MANAGE SALES------------------------------------------
 
 

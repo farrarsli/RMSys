@@ -22,8 +22,7 @@ class SalesController extends Controller
         $id = Auth::user()->id;
         $salesRecord = DB::table('sales')
             ->where('user_id', $id)
-            
-            ->orderBy('branchname', 'asc')
+            ->orderBy('created_at', 'asc')
             ->get();
         return view('sales.listsales', compact('salesRecord'));
     }

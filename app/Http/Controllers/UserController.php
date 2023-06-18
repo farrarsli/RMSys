@@ -22,6 +22,16 @@ class UserController extends Controller
             ->get();
         return view('userRegistration.listuser', compact('userRecord'));
     }
+    public function owneruserlist()
+    {
+        $userRecord = DB::table('users')
+            
+            
+            ->orderBy('name', 'asc')
+            ->get();
+        return view('userRegistration.owneruserlist', compact('userRecord'));
+    }
+  
 
     public function index()
     { 
@@ -57,7 +67,7 @@ class UserController extends Controller
             'email' => $email,
             'password' => Hash::make($ic),
             'category' => $category,
-            'profile_img' => $profile_img,
+            'profile_img' => $filename,
 
         );
 
@@ -77,6 +87,8 @@ class UserController extends Controller
             'email',
             'password',
             'category',
+            'profile_img',
+            
         )->where('users.id', '=', $id)->first();
 
           return view('userRegistration.updateprofile', compact('register'));

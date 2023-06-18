@@ -14,7 +14,13 @@
                                     <form action="{{ route('editProduct', $register->id) }} " enctype="multipart/form-data" method="POST" id="editProduct">
                                         @csrf
                                         @method('post')
+                                        <div class="form-row">
+                                            <div class="form-group col-md-12">
+                                                <img id="imgPreview" src="/assets/{{$register->product_img}}"
+                                                style="width: 150px; height: 150px; border-style: dashed; margin:auto;display:flex; border-radius: 90px;">
 
+                                            </div>
+                                        </div>
                                         <div class="form-row">
                                             <div class="form-group col-md-12">
                                                 <label for="email">Product Name </label>

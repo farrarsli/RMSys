@@ -1,80 +1,68 @@
 @extends('layouts.sideNav')
+
 @section('content')
 
-<script>
-    // to search the REPAIR FORM 
-    $(document).ready(function() {
-        $('#dataTable').DataTable({
-            "order": [
-                [0, "asc"]
-            ],
-            "language": {
-                search: '<i class="fa fa-search" aria-hidden="true"></i>',
-                searchPlaceholder: 'Search By Customer Name'
-            }
-        });
-
-        // filter REPAIR FORM
-        $('.dataTables_filter input[type="search"]').css({
-            'width': '300px',
-            'display': 'inline-block',
-            'font-size': '15px',
-            'font-weight': '400'
-        });
-    });
-</script>
-<center><h2>List of Registered User</h2></center>
-<section class="p-5">
+<center>
+    <h3>List of Registered Product</h3>
+</center>
+<section class="p-2">
     <div class="container" width="100px">
         <div class="overflow-auto" style="overflow:auto;">
             <div class="table-responsive">
-                <div class="col-lg-2 col-md-2 col-sm-2" style="float: left;">
-                    <a class="btn btn-success" style="float: right; width:100%;" role="button" href="{{ route('registeruser') }}">
-                        <i class="fas fa-plus"></i>&nbsp; Add New User</a> 
-                        
-                        <br>
-                </div><br><br><br>
+                    <script>
+                        // to search the REPAIR FORM 
+                        $(document).ready(function() {
+                            $('#dataTable').DataTable({
+                                "order": [
+                                    [0, "asc"]
+                                ],
+                                "language": {
+                                    search: '<i class="fa fa-search" aria-hidden="true"></i>',
+                                    searchPlaceholder: 'Search By Customer Name'
+                                }
+                            });
+
+                            // filter REPAIR FORM
+                            $('.dataTables_filter input[type="search"]').css({
+                                'width': '300px',
+                                'display': 'inline-block',
+                                'font-size': '15px',
+                                'font-weight': '400'
+                            });
+                        });
+                    </script>
+                </div>
                 <div class="card">
-                <div class="card-body">
-                <table class="table table-bordered" id="dataTable" cellspacing="0">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Category</th>
-                            <th>Profile Image</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($userRecord as $data)
-
-                        <tr id="row{{$data->id}}">
-
-                            <td>{{ $data->name }}</td>
-                            <td>{{ $data->email }}</td>
-                            <td>{{ $data->category }}</td>
-                            <td>
-                                <a class=" fas fa-image btn btn-secondary " data-toggle="modal" data-target="#viewPassModal{{$data->id}}" style="color: white; width:100%;"></a>
-                            </td>
-                            <td>
-                                <div class="btn-group" style="float: center;">
-                                <a href="{{route('updateprofile',$data->id)}}" class="btn btn-primary">Edit</a>
-                                    <button class="btn btn-danger" type="button" onclick="deleteItem(this)" data-id="{{ $data->id }}" data-name="{{ $data->name }}">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
-                        <div class="modal fade" id="viewPassModal{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="card-body">
+                        <table class="table table-bordered" id="dataTable" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Product Name</th>
+                                    <th>Product Detail</th>
+                                    <th>Stock Available</th>
+                                    <th>Product Image</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($productRecord as $data)
+                                <tr id="row{{$data->id}}">
+                                    <td>{{ $data->productname }}</td>
+                                    <td>{{ $data->productdetail }}</td>
+                                    <td>{{ $data->stock }}</td>
+                                    <td>
+                                        <a class="fas fa-image btn btn-secondary" data-toggle="modal" data-target="#viewPassModal{{$data->id}}" style="color: white; width: 100%;"></a>
+                                    </td>
+                                </tr>
+                                <div class="modal fade" id="viewPassModal{{$data->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="myModalLabel">Sales image</h5>
-
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
                                                 <div class="justify-content-center text-center">
-                                                    <img src="/assets/{{$data->profile_img}}" width="200px">
+                                                    <img src="/assets/{{$data->product_img}}" width="400px">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -82,13 +70,13 @@
                                             </div>
                                         </div>
                                     </div>
-                                        
                                 </div>
-                        @endforeach
-                    </tbody>
-                </table></div>
-            </div>
-                
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -123,7 +111,7 @@
 
                     $.ajax({
                         type: 'DELETE',
-                        url: '{{url("/delprofile")}}/' + id,
+                        url: '{{url("/deleteProduct")}}/' + id,
                         data: {
                             "_token": "{{ csrf_token() }}",
                         },
@@ -156,5 +144,4 @@
         });
 
     }
-    
 </script>

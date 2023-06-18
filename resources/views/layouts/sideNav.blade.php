@@ -60,7 +60,7 @@
                     </li>
                     @endif
 
-                    <!-- OWNER SIDENAV-->
+                    <!------------------------------------------ OWNER SIDENAV---------------------------------->
                     @if( auth()->user()->category== "Owner")
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('salesapproval*') ? 'active' : '' }}" href="{{ route('salesapproval') }}">
@@ -69,13 +69,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('listproduct*') ? 'active' : '' }}" href="{{ route('listproduct') }}">
+                        <a class="nav-link {{ request()->routeIs('owneruserlist*') ? 'active' : '' }}" href="{{ route('owneruserlist') }}">
                             <i class="material-icons" style="color: white;">inventory</i>
                            <b><span style="color: white;">Registered Users</span></b>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('listproduct*') ? 'active' : '' }}" href="{{ route('listproduct') }}">
+                        <a class="nav-link {{ request()->routeIs('ownerproductlist*') ? 'active' : '' }}" href="{{ route('ownerproductlist') }}">
                             <i class="material-icons" style="color: white;">inventory</i>
                            <b><span style="color: white;">Registered Products</span></b>
                         </a>
