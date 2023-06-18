@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Sales;
 
+
 class ProductController extends Controller
 {
     //gp to page listproduct
@@ -110,38 +111,59 @@ class ProductController extends Controller
         // Retrieve the sales record from the database based on the provided ID
         $salesRecord = Sales::find($salesid);
 
-            // Get the total sales value
-            $totalSales = $salesRecord->totalsales;
-    
-            // Set the initial limit percentage to 0
-            $limitPercentage = 0;
-    
-            // Calculate the limit percentage based on the total sales
-            if ($totalSales < 1000) {
-                $limitPercentage = 10;
-            } elseif ($totalSales >= 1001 && $totalSales <= 2000) {
-                $limitPercentage = 20;
-            } elseif ($totalSales >= 2001 && $totalSales <= 3000) {
-                $limitPercentage = 30;
-            } elseif ($totalSales >= 3001 && $totalSales <= 4000) {
-                $limitPercentage = 40;
-            } elseif ($totalSales >= 4001) {
-                $limitPercentage = 50;
-            }
-    
-            // Assign the limit percentage to sales record
-            $salesRecord->limit = $limitPercentage;
+        // Get the total sales value
+        $totalSales = $salesRecord->totalsales;
 
-                $productRecord = DB::table('product')
-                ->where('id', $id)
-                ->orderBy('productname', 'asc')
-                ->first();
-            
-            $stock = $productRecord->stock; // Retrieve stock
-            
-            $productLimit = $stock * ($limitPercentage / 100);
-            
-            return view('product.requestproductdetails', compact('productRecord', 'salesRecord', 'limitPercentage', 'productLimit'));
-        
+        // Set the initial limit percentage to 0
+        $limitPercentage = 0;
+
+        // Calculate the limit percentage based on the total sales
+        if ($totalSales < 1000) {
+            $limitPercentage = 10;
+        } elseif ($totalSales >= 1001 && $totalSales <= 2000) {
+            $limitPercentage = 20;
+        } elseif ($totalSales >= 2001 && $totalSales <= 3000) {
+            $limitPercentage = 30;
+        } elseif ($totalSales >= 3001 && $totalSales <= 4000) {
+            $limitPercentage = 40;
+        } elseif ($totalSales >= 4001) {
+            $limitPercentage = 50;
+        }
+
+        // Assign the limit percentage to sales record
+        $salesRecord->limit = $limitPercentage;
+
+        $productRecord = DB::table('product')
+            ->where('id', $id)
+            ->orderBy('productname', 'asc')
+            ->first();
+
+        $stock = $productRecord->stock; // Retrieve stock
+
+        $productLimit = $stock * ($limitPercentage / 100);
+
+        return view('product.requestproductdetails', compact('productRecord', 'salesRecord', 'limitPercentage', 'productLimit'));
+    }
+    public function insertStock(Request $request, $salesid, $productid)
+    {
+        $requeststock = $request->input('requeststock');
+
+        $data = array(
+            'requeststock' => $requeststock,
+            'sales_id' => $salesid,
+            'product_id' => $productid,
+        );
+
+        DB::table('request')->insert($data);
+
+        // Update the stock value in the product record
+        $product = Product::find($productid);
+        $product->stock -= $requeststock;
+        $product->save();
+
+        // Update the stock value in the variable as well
+        $stock = $product->stock;
+
+        return redirect()->route('requestproductlist', ['id' => $salesid])->with('success', 'Product stock has been updated');
     }
 }

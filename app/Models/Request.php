@@ -10,9 +10,8 @@ class Request extends Model
     protected $table='request'; 
 
     protected $fillable = [
-        'user_id',
-        'product_id',
         'sales_id',
+        'product_id',
         'requeststock',
     ];
 

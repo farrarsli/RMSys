@@ -74,7 +74,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="justify-content-center text-center">
-                                                    <img src="/assets/pass/{{$data->profile_img}}" width="400px">
+                                                    <img src="/assets/{{$data->profile_img}}" width="400px">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">

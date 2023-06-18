@@ -74,3 +74,7 @@ Route::get('/branchlimit', [App\Http\Controllers\StockController::class, 'branch
 Route::get('/setlimit', [App\Http\Controllers\StockController::class, 'setlimit'])->name('setlimit');
 Route::get('/calculateLimitByCategory/{id}', [App\Http\Controllers\SalesController::class, 'calculateLimitByCategory'])->name('calculateLimitByCategory');
 Route::get('/allowrequest/{id}', [App\Http\Controllers\SalesController::class, 'allowrequest'])->name('allowrequest');
+
+Route::post('/insertStock/{salesid}/{productid}', [App\Http\Controllers\ProductController::class, 'insertStock'])->name('insertStock');
+
+

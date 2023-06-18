@@ -41,6 +41,7 @@
                                             <a class="form-control">{{ $limitPercentage }} %</a>
                                         </div>
                                     </div>
+
                                     <div class="row">
                                         <div class="form-group col-md-6">
                                             <label for="stock">Your Request Limit:</label>
@@ -48,24 +49,40 @@
                                         </div>
 
                                         <div class="form-group col-md-6">
-                                            <label for="email">Enter your stock demand: </label>
-                                            <input type="text" style="border: solid grey;" class="form-control" id="productname" name="productname" placeholder="ENTER BELOW YOUR LIMIT" required>
+                                            <label for="email">Limit Percentage:</label>
+                                            <form method="POST" action="{{ route('insertStock', ['salesid' => request()->segment(2), 'productid' => request()->segment(3)]) }}" enctype="multipart/form-data" id="formNew">
+                                                @csrf
+                                                <input type="text" style="border: solid grey;" class="form-control" id="requeststock" name="requeststock" placeholder="ENTER BELOW YOUR LIMIT" required oninput="checkLimit()">
+
                                         </div>
                                     </div>
-
-                                    <div style="float: right;">
-                                        <a href="{{ url()->previous() }}" class="btn btn-secondary btn-md">Back</a>
-                                        <a class="btn btn-primary" role="button" href="">Request</a>
+                                    <div class="btn-group" style="float: right;">
+                                        <button type="submit" id="submitButton" class="btn btn-primary">Submit</button>
                                     </div>
-
+                                    </form>
                                 </div>
                             </div>
-                        </li>
-                    </ul>
                 </div>
-            </div><br>
-        </div>
+                </li>
+                </ul>
+            </div>
+        </div><br>
     </div>
+</div>
 </div>
 
 @endsection
+<script>
+    function checkLimit() {
+        var insertStock = parseInt(document.getElementById("requeststock").value);
+        var productLimit = parseInt("{{ $productLimit }}"); // Assuming $productLimit is a PHP variable with the product limit value
+
+        var submitButton = document.getElementById("submitButton");
+
+        if (insertStock > productLimit) {
+            submitButton.disabled = true;
+        } else {
+            submitButton.disabled = false;
+        }
+    }
+</script>
