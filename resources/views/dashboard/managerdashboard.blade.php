@@ -278,11 +278,11 @@
           <div class=" col-sm-18">
             <div class="circle-tile">
               <a href="#">
-                <div class="circle-tile-heading green  ">
+                <div class="circle-tile-heading gray  ">
                   <i class="fa fa-file-text fa-fw fa-2x"></i>
                 </div>
               </a>
-              <div class="circle-tile-content green" style="border-radius: 10px;">
+              <div class="circle-tile-content gray" style="border-radius: 10px;">
                 <div class="circle-tile-description text-faded">Available Product</div>
                 <div class="circle-tile-number text-faded">
                   {{$countproduct}}
@@ -301,10 +301,10 @@
           <div class=" col-sm-14">
             <div class="circle-tile ">
               <a href="#">
-                <div class="circle-tile-heading blue"><i class="fa fa-file-text fa-fw fa-2x"></i>
+                <div class="circle-tile-heading gray"><i class="fa fa-file-text fa-fw fa-2x"></i>
                 </div>
               </a>
-              <div class="circle-tile-content blue" style="border-radius: 10px;">
+              <div class="circle-tile-content gray" style="border-radius: 10px;">
                 <div class="circle-tile-description text-faded">Uploaded Sales</div>
                 <div class="circle-tile-number text-faded ">
 
@@ -324,10 +324,10 @@
           <div class=" col-sm-14">
             <div class="circle-tile ">
               <a href="#">
-                <div class="circle-tile-heading orange"><i class="fa fa-file-text fa-fw fa-2x"></i>
+                <div class="circle-tile-heading gray"><i class="fa fa-file-text fa-fw fa-2x"></i>
                 </div>
               </a>
-              <div class="circle-tile-content orange" style="border-radius: 10px;">
+              <div class="circle-tile-content gray" style="border-radius: 10px;">
                 <div class="circle-tile-description text-faded">Stock Requested</div>
                 <div class="circle-tile-number text-faded ">{{$countrequest}}</div>
               </div>

@@ -269,7 +269,7 @@
     </div>
        
   </div>
-</div>
+</div>  
 <div class="col-sm-12">
 <div class="container bootstrap snippet">
   <div class="row">
@@ -279,13 +279,13 @@
           <div class=" col-sm-18">
             <div class="circle-tile">
               <a href="#">
-                <div class="circle-tile-heading green  ">
+                <div class="circle-tile-heading orange   ">
                   <i class="fa fa-file-text fa-fw fa-2x"></i>
                 </div>
               </a>
-              <div class="circle-tile-content green" style="border-radius: 10px;">
-                <div class="circle-tile-description text-faded">Available Product</div>
-                <div class="circle-tile-number text-faded">
+              <div class="circle-tile-content orange" style="border-radius: 10px;">
+                <div class="circle-tile-description text-faded" style="color: white;">Available Product</div>
+                <div class="circle-tile-number text-faded" style="color: white;">
                   {{$countproduct}}
                 </div>
               </div>
@@ -302,12 +302,12 @@
           <div class=" col-sm-14">
             <div class="circle-tile ">
               <a href="#">
-                <div class="circle-tile-heading blue"><i class="fa fa-file-text fa-fw fa-2x"></i>
+                <div class="circle-tile-heading green"><i class="fa fa-file-text fa-fw fa-2x"></i>
                 </div>
               </a>
-              <div class="circle-tile-content blue" style="border-radius: 10px;">
-                <div class="circle-tile-description text-faded">Uploaded Sales</div>
-                <div class="circle-tile-number text-faded ">
+              <div class="circle-tile-content green" style="border-radius: 10px;">
+                <div class="circle-tile-description text-faded" style="color: white;">Uploaded Sales</div>
+                <div class="circle-tile-number text-faded " style="color: white;">
 
                   {{$countsales}}
 
@@ -325,12 +325,12 @@
           <div class=" col-sm-14">
             <div class="circle-tile ">
               <a href="#">
-                <div class="circle-tile-heading orange"><i class="fa fa-file-text fa-fw fa-2x"></i>
+                <div class="circle-tile-heading blue"><i class="fa fa-file-text fa-fw fa-2x"></i>
                 </div>
               </a>
-              <div class="circle-tile-content orange" style="border-radius: 10px;">
-                <div class="circle-tile-description text-faded">Stock Requested</div>
-                <div class="circle-tile-number text-faded ">{{$countrequest}}</div>
+              <div class="circle-tile-content blue" style="border-radius: 10px;">
+                <div class="circle-tile-description text-faded" style="color: white;">Stock Requested</div>
+                <div class="circle-tile-number text-faded " style="color: white;">{{$countrequest}}</div>
               </div>
             </div>
           </div>
@@ -341,6 +341,8 @@
   </div>
 </div>
 </div>
+
+
 </body>
 
 </html>
