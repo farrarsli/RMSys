@@ -302,10 +302,10 @@
           <div class=" col-sm-14">
             <div class="circle-tile ">
               <a href="#">
-                <div class="circle-tile-heading green"><i class="fa fa-file-text fa-fw fa-2x"></i>
+                <div class="circle-tile-heading dark-blue"><i class="fa fa-file-text fa-fw fa-2x"></i>
                 </div>
               </a>
-              <div class="circle-tile-content green" style="border-radius: 10px;">
+              <div class="circle-tile-content dark-blue" style="border-radius: 10px;">
                 <div class="circle-tile-description text-faded" style="color: white;">Uploaded Sales</div>
                 <div class="circle-tile-number text-faded " style="color: white;">
 
